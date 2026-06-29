@@ -2,11 +2,11 @@ pipeline {
   agent any
 
   tools {
-    maven 'Maven'
+    maven 'maven'
   }
 
   environment {
-    SCANNER_HOME = tool 'sonarscanner'
+    SCANNER_HOME = tool 'sonar-scanner'
   }
   stages {
     stage('Git Checkout') {
@@ -36,7 +36,7 @@ pipeline {
         withSonarQubeEnv('sonarqube') {
 
           sh '''
-            /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarscanner/bin/sonar-scanner \
+              $SCANNER_HOME/bin/sonar-scanner \
             -Dsonar.projectName=bloggingApp \
             -Dsonar.projectKey=bloggingApp \
             -Dsonar.java.binaries=target '''
