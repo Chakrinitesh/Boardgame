@@ -39,7 +39,7 @@ jobs:
        with: 
           scan-type: 'fs'
           scan-ref: '.'
-          format: 'html'
+          format: 'table'
           output: 'trivy-results.html'
           severity: 'CRITICAL,HIGH,MEDIUM'
           
