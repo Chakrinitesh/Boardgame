@@ -42,5 +42,8 @@ jobs:
           format: 'table'
           output: 'trivy-results.html'
           severity: 'CRITICAL,HIGH,MEDIUM'
-
-      
+          
+     - name: Upload Trivy results to GitHub Security tab
+       uses: github/codeql-action/upload-sarif@v3
+       with:
+          sarif_file: 'trivy-results.html 
